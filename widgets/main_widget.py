@@ -71,6 +71,7 @@ class MainWidget(BaseWidget):
         media_file_button = BaseButton()
         media_file_button.init_button(title="多媒体文件推流", icon="", button_type=ButtonType.BUTTON_DANGER)
         media_file_button.set_button_size(ButtonSize.NORMAL_SIZE)
+        media_file_button.setDisabled(True)
 
         button_hbox_layout.addStretch(15)
         button_hbox_layout.addWidget(device_plug_button)

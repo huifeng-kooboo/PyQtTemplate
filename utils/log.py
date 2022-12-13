@@ -2,6 +2,7 @@
 import logging
 import os
 import time
+from configs.settings import APP_NAME
 
 
 __all__ = {
@@ -10,7 +11,7 @@ __all__ = {
 
 g_log = logging.getLogger()
 g_log.setLevel(logging.DEBUG)
-rq = "plug_flow_" + time.strftime('%Y%m%d', time.localtime(time.time()))
+rq = APP_NAME + "_" + time.strftime('%Y%m%d', time.localtime(time.time()))
 log_path = 'logs/'
 if not os.path.exists(log_path):
     os.mkdir(log_path)

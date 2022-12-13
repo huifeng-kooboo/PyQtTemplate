@@ -13,6 +13,8 @@ PRIMARY_HOVER_BACKGROUND_COLOR = "rgb(121, 187, 255)"
 PRIMARY_HOVER_COLOR = "rgb(255, 255, 255)"
 PRIMARY_PRESSED_BACKGROUND_COLOR = "rgb(51, 126, 204)"
 PRIMARY_PRESSED_COLOR = "rgb(255, 255, 255)"
+PRIMARY_DISABLED_BACKGROUND_COLOR = "#92C4FF"
+PRIMARY_DISABLED_COLOR = "rgb(255, 255, 255)"
 
 # success 按钮状态 7E8187
 SUCCESS_NORMAL_BACKGROUND_COLOR = "#5FB822"
@@ -21,6 +23,8 @@ SUCCESS_HOVER_BACKGROUND_COLOR = "#447E1E"
 SUCCESS_HOVER_COLOR = "rgb(255, 255, 255)"
 SUCCESS_PRESSED_BACKGROUND_COLOR = "#7AC648"
 SUCCESS_PRESSED_COLOR = "rgb(255, 255, 255)"
+SUCCESS_DISABLED_BACKGROUND_COLOR = "#A9DC88"
+SUCCESS_DISABLED_COLOR = "rgb(255, 255, 255)"
 
 # info 按钮
 INFO_NORMAL_BACKGROUND_COLOR = "#7E8187"
@@ -29,6 +33,8 @@ INFO_HOVER_BACKGROUND_COLOR = "#585A5E"
 INFO_HOVER_COLOR = "rgb(255, 255, 255)"
 INFO_PRESSED_BACKGROUND_COLOR = "#95999D"
 INFO_PRESSED_COLOR = "rgb(255, 255, 255)"
+INFO_DISABLED_BACKGROUND_COLOR = "#BCBDC1"
+INFO_DISABLED_COLOR = "rgb(255, 255, 255)"
 
 # warning 按钮
 WARNING_NORMAL_BACKGROUND_COLOR = "#DC9027"
@@ -37,6 +43,8 @@ WARNING_HOVER_BACKGROUND_COLOR = "#946320"
 WARNING_HOVER_COLOR = "rgb(255, 255, 255)"
 WARNING_PRESSED_BACKGROUND_COLOR = "#E3A54C"
 WARNING_PRESSED_COLOR = "rgb(255, 255, 255)"
+WARNING_DISABLED_BACKGROUND_COLOR = "#EEC68A"
+WARNING_DISABLED_COLOR = "rgb(255, 255, 255)"
 
 # danger 按钮
 DANGER_NORMAL_BACKGROUND_COLOR = "#EB5359"
@@ -45,6 +53,8 @@ DANGER_HOVER_BACKGROUND_COLOR = "#9E3D40"
 DANGER_HOVER_COLOR = "rgb(255, 255, 255)"
 DANGER_PRESSED_BACKGROUND_COLOR = "#EE7276"
 DANGER_PRESSED_COLOR = "rgb(255, 255, 255)"
+DANGER_DISABLED_BACKGROUND_COLOR = "#F4A5A7"
+DANGER_DISABLED_COLOR = "rgb(255, 255, 255)"
 
 class ButtonStyle:
     """
@@ -61,23 +71,28 @@ class ButtonStyle:
         if button_type == ButtonType.BUTTON_PRIMARY:
             return ButtonStyle._generate_style(PRIMARY_NORMAL_BACKGROUND_COLOR,PRIMARY_NORMAL_COLOR,
                                                PRIMARY_HOVER_BACKGROUND_COLOR,PRIMARY_HOVER_COLOR,
-                                               PRIMARY_PRESSED_BACKGROUND_COLOR,PRIMARY_HOVER_COLOR)
+                                               PRIMARY_PRESSED_BACKGROUND_COLOR,PRIMARY_HOVER_COLOR,
+                                               PRIMARY_DISABLED_BACKGROUND_COLOR,PRIMARY_DISABLED_COLOR)
         elif button_type == ButtonType.BUTTON_INFO:
             return ButtonStyle._generate_style(INFO_NORMAL_BACKGROUND_COLOR,INFO_NORMAL_COLOR,
                                                INFO_HOVER_BACKGROUND_COLOR,INFO_HOVER_COLOR,
-                                               INFO_PRESSED_BACKGROUND_COLOR,INFO_HOVER_COLOR)
+                                               INFO_PRESSED_BACKGROUND_COLOR,INFO_HOVER_COLOR,
+                                               INFO_DISABLED_BACKGROUND_COLOR,INFO_DISABLED_COLOR)
         elif button_type == ButtonType.BUTTON_DANGER:
             return ButtonStyle._generate_style(DANGER_NORMAL_BACKGROUND_COLOR,DANGER_NORMAL_COLOR,
                                                DANGER_HOVER_BACKGROUND_COLOR,DANGER_HOVER_COLOR,
-                                               DANGER_PRESSED_BACKGROUND_COLOR,DANGER_HOVER_COLOR)
+                                               DANGER_PRESSED_BACKGROUND_COLOR,DANGER_HOVER_COLOR,
+                                               DANGER_DISABLED_BACKGROUND_COLOR,DANGER_DISABLED_COLOR)
         elif button_type == ButtonType.BUTTON_SUCCESS:
             return ButtonStyle._generate_style(SUCCESS_NORMAL_BACKGROUND_COLOR,SUCCESS_NORMAL_COLOR,
                                                SUCCESS_HOVER_BACKGROUND_COLOR,SUCCESS_HOVER_COLOR,
-                                               SUCCESS_PRESSED_BACKGROUND_COLOR,SUCCESS_HOVER_COLOR)
+                                               SUCCESS_PRESSED_BACKGROUND_COLOR,SUCCESS_HOVER_COLOR,
+                                               SUCCESS_DISABLED_BACKGROUND_COLOR,SUCCESS_DISABLED_COLOR)
         elif button_type == ButtonType.BUTTON_WARNING:
             return ButtonStyle._generate_style(WARNING_NORMAL_BACKGROUND_COLOR,WARNING_NORMAL_COLOR,
                                                WARNING_HOVER_BACKGROUND_COLOR,WARNING_HOVER_COLOR,
-                                               WARNING_PRESSED_BACKGROUND_COLOR,WARNING_HOVER_COLOR)
+                                               WARNING_PRESSED_BACKGROUND_COLOR,WARNING_HOVER_COLOR,
+                                               WARNING_DISABLED_BACKGROUND_COLOR,WARNING_DISABLED_COLOR)
 
     @staticmethod
     def get_button_size(button_size: ButtonSize):
@@ -95,7 +110,8 @@ class ButtonStyle:
 
     @staticmethod
     def _generate_style(background_color: str, color: str, hover_background_color: str = "", hover_color: str = "",
-                        pressed_background_color: str = "", pressed_color: str = ""):
+                        pressed_background_color: str = "", pressed_color: str = "", disabled_background_color: str="",
+                        disabled_color: str=""):
         '''
         生成ButtonStyleSheet
         :param background_color:
@@ -117,5 +133,10 @@ class ButtonStyle:
             style_sheet_pressed = "QPushButton:pressed {background-color: %1; color: %2 }"
             style_pressed = style_sheet_pressed.replace("%1", pressed_background_color).replace("%2", pressed_color)
             style_ += style_pressed
+        
+        if disabled_background_color != "" and disabled_color != "":
+            style_sheet_disabled = "QPushButton:disabled {background-color: %1; color: %2 }"
+            style_disabled = style_sheet_disabled.replace("%1", disabled_background_color).replace("%2", disabled_color)
+            style_ += style_disabled
 
         return style_
