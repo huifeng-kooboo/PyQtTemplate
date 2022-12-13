@@ -3,7 +3,7 @@ from PyQt6.QtGui import *
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from configs.settings import TITLE_NAME
-from widgets.components.base_button import BaseButton,ButtonType, ButtonSize, BorderStyle
+from widgets.components.base_button import BaseButton,ButtonType, ButtonSize
 
 
 class MainWidget(BaseWidget):

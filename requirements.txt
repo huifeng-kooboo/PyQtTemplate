@@ -1,3 +1,7 @@
+altgraph==0.17.3
+macholib==1.16.2
+pyinstaller==5.7.0
+pyinstaller-hooks-contrib==2022.14
 PyQt6==6.4.0
 PyQt6-Qt6==6.4.1
 PyQt6-sip==13.4.0

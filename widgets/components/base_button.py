@@ -54,7 +54,6 @@ class BaseButton(QPushButton):
         
         self.setStyleSheet(self.styleSheet() + style_sheet)
         
-    
 
     def set_button_size(self, button_size: ButtonSize):
         self.setFixedSize(ButtonStyle.get_button_size(button_size))
