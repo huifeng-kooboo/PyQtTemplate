@@ -22,3 +22,11 @@ class ButtonSize(Enum):
     NORMAL_SIZE = 0
     MINI_SIZE = 1
     LARGE_SIZE = 2
+    
+@unique
+class BorderStyle(Enum):
+    """
+    边框样式
+    """
+    Border_Solid = 0
+    Border_Dashed = 1

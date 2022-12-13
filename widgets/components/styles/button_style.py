@@ -1,7 +1,9 @@
-from widgets.ui_types import ButtonType, ButtonSize
+from widgets.ui_types import ButtonType, ButtonSize, BorderStyle
 from PyQt6.QtGui import *
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
+
+# 样式参考： https://element-plus.gitee.io/zh-CN/component/button.html#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95
 
 
 ########## 按钮颜色配置 ##################################
@@ -112,16 +114,21 @@ class ButtonStyle:
     def _generate_style(background_color: str, color: str, hover_background_color: str = "", hover_color: str = "",
                         pressed_background_color: str = "", pressed_color: str = "", disabled_background_color: str="",
                         disabled_color: str=""):
-        '''
-        生成ButtonStyleSheet
-        :param background_color:
-        :param color:
-        :param hover_background_color:
-        :param hover_color:
-        :param pressed_background_color:
-        :param pressed_color:
-        :return:
-        '''
+        """生成样式表
+
+        Args:
+            background_color (str): _description_
+            color (str): _description_
+            hover_background_color (str, optional): _description_. Defaults to "".
+            hover_color (str, optional): _description_. Defaults to "".
+            pressed_background_color (str, optional): _description_. Defaults to "".
+            pressed_color (str, optional): _description_. Defaults to "".
+            disabled_background_color (str, optional): _description_. Defaults to "".
+            disabled_color (str, optional): _description_. Defaults to "".
+
+        Returns:
+            _type_: _description_
+        """
         style_sheet = "QPushButton{background-color: %1; color: %2 ; border-radius: 5px;}"
         style_ = style_sheet.replace("%1", background_color).replace("%2", color)
         if hover_background_color != "" and hover_color != "":
