@@ -1,7 +1,7 @@
 import sys
 from utils.log import g_log
 from configs.settings import APP_NAME
-from PyQt5 import QtWidgets
+from PyQt6 import QtWidgets
 from widgets.main_widget import MainWidget
 
 
@@ -16,7 +16,7 @@ def start_app(app_name: str):
         app = QtWidgets.QApplication([""])
         widget = MainWidget()
         widget.show()
-        ret = app.exec_()
+        ret = app.exec()
         sys.exit(ret)
 
 

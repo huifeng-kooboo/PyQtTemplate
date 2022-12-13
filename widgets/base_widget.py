@@ -1,5 +1,5 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import QWidget
+from PyQt6.QtCore import *
+from PyQt6.QtWidgets import QWidget
 
 
 class BaseWidget(QWidget):
@@ -31,7 +31,7 @@ class BaseWidget(QWidget):
         :return:
         """
         # 全局样式设置
-        self.setStyleSheet("QWidget{background-color:white; font: 18px; font-weight:bold; }")
+        self.setStyleSheet("QWidget{background-color:white; font: 18px; font-weight:bold; color: black; }")
         pass
 
     def __init_signals(self):

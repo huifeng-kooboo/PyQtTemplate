@@ -1,7 +1,7 @@
 from widgets.base_widget import BaseWidget
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
+from PyQt6.QtGui import *
+from PyQt6.QtCore import *
+from PyQt6.QtWidgets import *
 from configs.settings import TITLE_NAME
 from widgets.components.base_button import BaseButton,ButtonType, ButtonSize
 
@@ -45,7 +45,7 @@ class MainWidget(BaseWidget):
         self.ui_youguang_number_label.setFixedHeight(30)
         self.ui_youguang_number_label.setFixedWidth(200)
 
-        hbox_layout.setAlignment(Qt.AlignTop)
+        hbox_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
         # # 添加label
         hbox_layout.addStretch(5)
         hbox_layout.addWidget(title_label)
@@ -59,17 +59,17 @@ class MainWidget(BaseWidget):
         self.tool_button_group = QButtonGroup()
         button_hbox_layout = QHBoxLayout()
         self.layout.addLayout(button_hbox_layout,20)
-        button_hbox_layout.setAlignment(Qt.AlignTop)
+        button_hbox_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         # 创建三个按钮
         device_plug_button = BaseButton()
         device_plug_button.init_button(title="设备推流", icon="", button_type=ButtonType.BUTTON_PRIMARY)
         device_plug_button.set_button_size(ButtonSize.NORMAL_SIZE)
         screen_capture_button = BaseButton()
-        screen_capture_button.init_button(title="屏幕捕捉", icon="", button_type=ButtonType.BUTTON_PRIMARY)
+        screen_capture_button.init_button(title="屏幕捕捉", icon="", button_type=ButtonType.BUTTON_SUCCESS)
         screen_capture_button.set_button_size(ButtonSize.NORMAL_SIZE)
         media_file_button = BaseButton()
-        media_file_button.init_button(title="多媒体文件推流", icon="", button_type=ButtonType.BUTTON_PRIMARY)
+        media_file_button.init_button(title="多媒体文件推流", icon="", button_type=ButtonType.BUTTON_DANGER)
         media_file_button.set_button_size(ButtonSize.NORMAL_SIZE)
 
         button_hbox_layout.addStretch(15)
@@ -86,9 +86,9 @@ class MainWidget(BaseWidget):
         self.tool_button_group.addButton(screen_capture_button)
         self.tool_button_group.addButton(media_file_button)
 
-        # 预览Layout
-        preview_hbox_layout = QHBoxLayout()
-        self.layout.addLayout(preview_hbox_layout,5)
+        # # 预览Layout
+        # preview_hbox_layout = QHBoxLayout()
+        # self.layout.addLayout(preview_hbox_layout,5)
 
 
 

@@ -1,11 +1,50 @@
 from widgets.ui_types import ButtonType, ButtonSize
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
+from PyQt6.QtGui import *
+from PyQt6.QtCore import *
+from PyQt6.QtWidgets import *
 
 
 ########## 按钮颜色配置 ##################################
 
+# primary 按钮状态
+PRIMARY_NORMAL_BACKGROUND_COLOR = "rgb(64, 158, 255)"
+PRIMARY_NORMAL_COLOR = "rgb(255, 255, 255)"
+PRIMARY_HOVER_BACKGROUND_COLOR = "rgb(121, 187, 255)"
+PRIMARY_HOVER_COLOR = "rgb(255, 255, 255)"
+PRIMARY_PRESSED_BACKGROUND_COLOR = "rgb(51, 126, 204)"
+PRIMARY_PRESSED_COLOR = "rgb(255, 255, 255)"
+
+# success 按钮状态 7E8187
+SUCCESS_NORMAL_BACKGROUND_COLOR = "#5FB822"
+SUCCESS_NORMAL_COLOR = "rgb(255, 255, 255)"
+SUCCESS_HOVER_BACKGROUND_COLOR = "#447E1E"
+SUCCESS_HOVER_COLOR = "rgb(255, 255, 255)"
+SUCCESS_PRESSED_BACKGROUND_COLOR = "#7AC648"
+SUCCESS_PRESSED_COLOR = "rgb(255, 255, 255)"
+
+# info 按钮
+INFO_NORMAL_BACKGROUND_COLOR = "#7E8187"
+INFO_NORMAL_COLOR = "rgb(255, 255, 255)"
+INFO_HOVER_BACKGROUND_COLOR = "#585A5E"
+INFO_HOVER_COLOR = "rgb(255, 255, 255)"
+INFO_PRESSED_BACKGROUND_COLOR = "#95999D"
+INFO_PRESSED_COLOR = "rgb(255, 255, 255)"
+
+# warning 按钮
+WARNING_NORMAL_BACKGROUND_COLOR = "#DC9027"
+WARNING_NORMAL_COLOR = "rgb(255, 255, 255)"
+WARNING_HOVER_BACKGROUND_COLOR = "#946320"
+WARNING_HOVER_COLOR = "rgb(255, 255, 255)"
+WARNING_PRESSED_BACKGROUND_COLOR = "#E3A54C"
+WARNING_PRESSED_COLOR = "rgb(255, 255, 255)"
+
+# danger 按钮
+DANGER_NORMAL_BACKGROUND_COLOR = "#EB5359"
+DANGER_NORMAL_COLOR = "rgb(255, 255, 255)"
+DANGER_HOVER_BACKGROUND_COLOR = "#9E3D40"
+DANGER_HOVER_COLOR = "rgb(255, 255, 255)"
+DANGER_PRESSED_BACKGROUND_COLOR = "#EE7276"
+DANGER_PRESSED_COLOR = "rgb(255, 255, 255)"
 
 class ButtonStyle:
     """
@@ -20,25 +59,25 @@ class ButtonStyle:
         :return:
         '''
         if button_type == ButtonType.BUTTON_PRIMARY:
-            return ButtonStyle._generate_style("rgb(64, 158, 255)", 'rgb(255, 255, 255)', 'rgb(121, 187, 255)',
-                                               'rgb(255, 255, 255)',
-                                               "rgb(51, 126, 204)", 'rgb(255, 255, 255)')
+            return ButtonStyle._generate_style(PRIMARY_NORMAL_BACKGROUND_COLOR,PRIMARY_NORMAL_COLOR,
+                                               PRIMARY_HOVER_BACKGROUND_COLOR,PRIMARY_HOVER_COLOR,
+                                               PRIMARY_PRESSED_BACKGROUND_COLOR,PRIMARY_HOVER_COLOR)
         elif button_type == ButtonType.BUTTON_INFO:
-            return ButtonStyle._generate_style("rgb(64, 158, 255)", 'rgb(255, 255, 255)', 'rgb(121, 187, 255)',
-                                               'rgb(255, 255, 255)',
-                                               "rgb(51, 126, 204)", 'rgb(255, 255, 255)')
+            return ButtonStyle._generate_style(INFO_NORMAL_BACKGROUND_COLOR,INFO_NORMAL_COLOR,
+                                               INFO_HOVER_BACKGROUND_COLOR,INFO_HOVER_COLOR,
+                                               INFO_PRESSED_BACKGROUND_COLOR,INFO_HOVER_COLOR)
         elif button_type == ButtonType.BUTTON_DANGER:
-            return ButtonStyle._generate_style("rgb(64, 158, 255)", 'rgb(255, 255, 255)', 'rgb(121, 187, 255)',
-                                               'rgb(255, 255, 255)',
-                                               "rgb(51, 126, 204)", 'rgb(255, 255, 255)')
+            return ButtonStyle._generate_style(DANGER_NORMAL_BACKGROUND_COLOR,DANGER_NORMAL_COLOR,
+                                               DANGER_HOVER_BACKGROUND_COLOR,DANGER_HOVER_COLOR,
+                                               DANGER_PRESSED_BACKGROUND_COLOR,DANGER_HOVER_COLOR)
         elif button_type == ButtonType.BUTTON_SUCCESS:
-            return ButtonStyle._generate_style("rgb(64, 158, 255)", 'rgb(255, 255, 255)', 'rgb(121, 187, 255)',
-                                               'rgb(255, 255, 255)',
-                                               "rgb(51, 126, 204)", 'rgb(255, 255, 255)')
+            return ButtonStyle._generate_style(SUCCESS_NORMAL_BACKGROUND_COLOR,SUCCESS_NORMAL_COLOR,
+                                               SUCCESS_HOVER_BACKGROUND_COLOR,SUCCESS_HOVER_COLOR,
+                                               SUCCESS_PRESSED_BACKGROUND_COLOR,SUCCESS_HOVER_COLOR)
         elif button_type == ButtonType.BUTTON_WARNING:
-            return ButtonStyle._generate_style("rgb(64, 158, 255)", 'rgb(255, 255, 255)', 'rgb(121, 187, 255)',
-                                               'rgb(255, 255, 255)',
-                                               "rgb(51, 126, 204)", 'rgb(255, 255, 255)')
+            return ButtonStyle._generate_style(WARNING_NORMAL_BACKGROUND_COLOR,WARNING_NORMAL_COLOR,
+                                               WARNING_HOVER_BACKGROUND_COLOR,WARNING_HOVER_COLOR,
+                                               WARNING_PRESSED_BACKGROUND_COLOR,WARNING_HOVER_COLOR)
 
     @staticmethod
     def get_button_size(button_size: ButtonSize):
