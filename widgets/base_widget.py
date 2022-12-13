@@ -31,7 +31,7 @@ class BaseWidget(QWidget):
         :return:
         """
         # 全局样式设置
-        self.setStyleSheet("QWidget{background-color:white; font: 18px; font-weight:bold; color: black; }")
+        self.setStyleSheet("QWidget{background-color:white; font: 13px; font-weight:bold; color: black; }")
         pass
 
     def __init_signals(self):
