@@ -1,7 +1,6 @@
-from PyQt6.QtGui import *
-from PyQt6.QtCore import *
-from PyQt6.QtWidgets import *
-from widgets.ui_types import ButtonType, ButtonSize, BorderStyle
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from widgets.components.ui_types import ButtonType, ButtonSize, BorderStyle
 from widgets.components.styles.button_style import ButtonStyle
 
 
@@ -29,7 +28,7 @@ class BaseButton(QPushButton):
             pass
         else:
             style_sheet = ButtonStyle.get_style_sheet(button_type)
-            self.setStyleSheet(self.styleSheet()+style_sheet)
+            self.setStyleSheet(self.styleSheet() + style_sheet)
 
     def set_radius(self, radius: int):
         """
@@ -38,11 +37,10 @@ class BaseButton(QPushButton):
         :return:
         """
         style_ = "QPushButton { border-radius: %1px;}"
-        self.setStyleSheet(self.styleSheet() + style_.replace("%1",str(radius)))
-        
-    def set_border_style(self,border_style: BorderStyle):
-        """设置边框样式
+        self.setStyleSheet(self.styleSheet() + style_.replace("%1", str(radius)))
 
+    def set_border_style(self, border_style: BorderStyle):
+        """设置边框样式
         Args:
             border_style (_type_): _description_
         """
@@ -51,9 +49,8 @@ class BaseButton(QPushButton):
             style_sheet = "QPushButton {border: solid 1px;}"
         elif border_style == BorderStyle.Border_Dashed:
             style_sheet = "QPushButton {border: dashed 2px;}"
-        
+
         self.setStyleSheet(self.styleSheet() + style_sheet)
-        
 
     def set_button_size(self, button_size: ButtonSize):
         self.setFixedSize(ButtonStyle.get_button_size(button_size))
